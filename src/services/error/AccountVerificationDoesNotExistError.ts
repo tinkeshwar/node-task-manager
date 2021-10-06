@@ -1,0 +1,3 @@
+class AccountVerificationDoesNotExistError extends Error {}
+
+export default AccountVerificationDoesNotExistError

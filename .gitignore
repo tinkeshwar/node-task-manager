@@ -1,0 +1,10 @@
+/node_modules
+/dist
+.vscode
+.env
+.DS_STORE
+/static
+/.nyc_output
+/coverage
+yarn.lock
+package-lock.json

@@ -1,0 +1,5 @@
+{
+  "exit":true,
+  "require": ["node_modules/ts-node/register","test/mocha.setup.ts"],
+  "spec":["test/cases/**/*.ts"]
+}
