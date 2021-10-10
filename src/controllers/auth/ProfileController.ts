@@ -1,6 +1,6 @@
 import Boom from '@hapi/boom'
 import Hapi from '@hapi/hapi'
-import { User } from '../../models'
+import { Bucket, Task, User } from '../../models'
 import ProfileService from '../../services/auth/ProfileService'
 import { EventManager } from '../../services/event'
 import { FileManager } from '../../services/file'
@@ -8,7 +8,9 @@ import { FileManager } from '../../services/file'
 class ProfileController {
   async profile (request: Hapi.Request, response: Hapi.ResponseToolkit): Promise<Error | Hapi.ResponseObject> {
     try {
-      const user = await ProfileService.profile(request)
+      const user = await ProfileService.profile(request) as any
+      user.buckets = await Bucket.count({ where: { userId: user.user.id } })
+      user.tasks = await Task.count({ where: { userId: user.user.id } })
       return response.response(user)
     } catch (error: any) {
       return Boom.forbidden(error)
