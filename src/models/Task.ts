@@ -69,7 +69,7 @@ class Task extends Model {
         'JSON_ARRAY_APPEND',
         Sequelize.col('history'),
         '$',
-        JSON.stringify({ status, updated_at: new Date() })
+        JSON.stringify({ status, updatedAt: new Date() })
       )
     })
   }

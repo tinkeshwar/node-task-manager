@@ -13,7 +13,7 @@ BucketController.options = {
   sortBy: ['created_at', 'desc'],
   createWith: ['name', 'description'],
   updateWith: ['name', 'description', 'status'],
-  included: []
+  included: ['tasks']
 }
 
 export default BucketController
